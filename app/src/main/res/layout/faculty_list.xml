@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            tools:context="com.meech.eAttendance.MainActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp">
+
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:paddingTop="10sp"
+                    android:textColor="@color/material_blue_grey_95"
+                    android:textSize="16sp"
+                    android:text="@string/titletv" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5sp"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/material_blue_grey_80"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:paddingTop="5sp"
+                    android:textColor="@color/material_blue_grey_95"
+                    android:textSize="16sp"
+                    android:text="@string/initialstv" />
+
+                <TextView
+                    android:id="@+id/initial"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5sp"
+                    android:paddingLeft="5dp"
+                    android:textColor="#000"
+                    android:textSize="16sp" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start"
+                    android:paddingTop="5sp"
+                    android:textColor="@color/material_blue_grey_95"
+                    android:textSize="16sp"
+                    android:text="@string/majortv" />
+
+                <TextView
+                    android:id="@+id/major"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5sp"
+                    android:paddingLeft="5dp"
+                    android:textColor="#000"
+                    android:textSize="16sp" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</LinearLayout>
+
