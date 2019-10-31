@@ -13,9 +13,9 @@ public class SplashActivity extends AppCompatActivity {
 
     SweetAlertDialog sDialog;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
 
             sDialog = new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE);
             sDialog.setContentText("Change IP?");

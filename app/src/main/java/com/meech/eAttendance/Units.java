@@ -184,8 +184,7 @@ public class Units extends AppCompatActivity {
                     } else {
 
                             adapter = new SimpleAdapter(
-                                    Units.this, UnitsLists,
-                                    R.layout.units_list, new String[]{
+                                    Units.this, UnitsLists, R.layout.units_list, new String[]{
                                     TAG_UNITNAME, TAG_UNITPROG},
                                     new int[]{R.id.unittitle, R.id.programme});
 
