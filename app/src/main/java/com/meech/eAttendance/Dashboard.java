@@ -1,11 +1,15 @@
 package com.meech.eAttendance;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -27,6 +31,7 @@ import java.util.List;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static com.meech.eAttendance.JSONParser.jsonArray;
+import static com.meech.eAttendance.SplashActivity.MY_PERMISSIONS_REQUEST_READ_AND_WRITE;
 
 public class Dashboard extends AppCompatActivity {
     SweetAlertDialog pDialog;
@@ -126,8 +131,18 @@ public class Dashboard extends AppCompatActivity {
         boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
         if(isConnected){
-            Intent i = new Intent(Dashboard.this, Download.class);
-            startActivity(i);
+            //check for storage permission
+            if (ContextCompat.checkSelfPermission(Dashboard.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                ActivityCompat.requestPermissions(Dashboard.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_READ_AND_WRITE);
+            }
+            //if permission has already been granted
+            else {
+                Intent i = new Intent(Dashboard.this, Download.class);
+                startActivity(i);
+            }
 
             /*List<DownloadedStudentList> downloadedStudentLists;
             downloadedStudentLists=DownloadedStudentList.listAll(DownloadedStudentList.class);
@@ -440,5 +455,23 @@ public class Dashboard extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_READ_AND_WRITE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted,
+                    Intent i = new Intent(Dashboard.this, Download.class);
+                    startActivity(i);
+                } else {
+                    // permission denied, boo!
+                }
+
+            }
+        }
     }
 }
